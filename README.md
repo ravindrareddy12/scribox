@@ -21,8 +21,6 @@ Check out the live demo of Hack Ideas on [https://master.d35c0w04yap1v.amplifyap
 
 ## Getting Started
 
-1. React frontend Application
-
 ### Cloning the Repository
 
 To start with Hack Ideas, follow these steps:
@@ -59,7 +57,26 @@ To start with Hack Ideas, follow these steps:
 
 ### Key Features
 
-...
+#### User Authentication
+
+- Register for an account to gain access to the platform.
+- Securely log in if you are a returning user.
+
+#### Challenges
+
+- Create and share new challenges with the community.
+- Share challenge submissions, including text, images, or other relevant content.
+- Engage with challenges posted by other users.
+
+#### Voting System
+
+- Vote on your favorite challenge submissions.
+- Contribute to identifying the most popular and creative ideas.
+
+#### Sorting
+
+- Sort challenges based on creation date or the number of votes received.
+- Explore challenges with flexible sorting options.
 
 Feel free to immerse yourself in the Hack Ideas community, create challenges, vote on submissions, and be part of an innovative and collaborative environment.
 
