@@ -2,13 +2,25 @@ import React, { useState } from 'react';
 import FirestoreService from '../services/FirestoreService';
 
 const ChallengeForm = () => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [selectedTag, setSelectedTag] = useState(''); // State variable for selected tag
+  const [challengeData, setChallengeData] = useState({
+    title: '',
+    description: '',
+    selectedTag: '',
+  });
+
   const [showEmptyDetailsMessage, setShowEmptyDetailsMessage] = useState(false);
+
+  const handleInputChange = (e) => {
+    setChallengeData({
+      ...challengeData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleAddChallenge = async (e) => {
     e.preventDefault();
+
+    const { title, description, selectedTag } = challengeData;
 
     // Check if title, description, and tag are not empty
     if (!title || !description || !selectedTag) {
@@ -19,41 +31,62 @@ const ChallengeForm = () => {
     const newChallenge = {
       title,
       description,
-      tag: selectedTag, 
+      tag: selectedTag,
       votes: 0,
       newDate: new Date().toLocaleDateString(),
     };
 
     await FirestoreService.addChallenge(newChallenge);
 
-    alert("new challenge added successfully")
-    setTitle('');
-    setDescription('');
-    setSelectedTag('');
+    alert('New challenge added successfully');
+    setChallengeData({
+      title: '',
+      description: '',
+      selectedTag: '',
+    });
     setShowEmptyDetailsMessage(false);
   };
 
   return (
     <div style={styles.container}>
-      
       <h2 style={styles.heading}>Add Challenge</h2>
-      {showEmptyDetailsMessage && <p style={styles.errorMessage}>Please fill in title, description, and select a tag.</p>}
+      {showEmptyDetailsMessage && (
+        <p style={styles.errorMessage}>Please fill in title, description, and select a tag.</p>
+      )}
       <form onSubmit={handleAddChallenge} style={styles.form}>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label style={styles.label}>Title:</label>
-        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} style={styles.input} required />&nbsp;&nbsp;&nbsp;&nbsp;
+        <input
+          type="text"
+          name="title"
+          value={challengeData.title}
+          onChange={handleInputChange}
+          style={styles.input}
+          required
+        />
         <br />
         <label style={styles.label}>Description:</label>
-        <textarea value={description} onChange={(e) => setDescription(e.target.value)} style={styles.textarea} required />&nbsp;&nbsp;&nbsp;&nbsp;
+        <textarea
+          name="description"
+          value={challengeData.description}
+          onChange={handleInputChange}
+          style={styles.textarea}
+          required
+        />
         <br />
         <label style={styles.label}>Tags:</label>
-        <select value={selectedTag} onChange={(e) => setSelectedTag(e.target.value)} required>
+        <select
+          name="selectedTag"
+          value={challengeData.selectedTag}
+          onChange={handleInputChange}
+          style={styles.select}
+          required
+        >
           <option value="">Select a tag</option>
           <option value="feature">Feature</option>
           <option value="tech">Tech</option>
           <option value="design">Design</option>
           <option value="challenge">Challenge</option>
-        </select>&nbsp;&nbsp;&nbsp;&nbsp;
+        </select>
         <br />
         <input type="submit" value="Submit" style={styles.submitButton} />
       </form>
@@ -62,6 +95,12 @@ const ChallengeForm = () => {
 };
 
 const styles = {
+  select: {
+    width: '200px',  // Adjust the width as needed
+    height: '35px',  // Adjust the height as needed
+    padding: '8px',
+    marginBottom: '10px',
+  },
   container: {
     textAlign: 'center',
     margin: '20px',
@@ -75,13 +114,13 @@ const styles = {
   },
   form: {
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
   },
   label: {
     fontSize: '18px',
     marginBottom: '5px',
- },
+  },
   input: {
     padding: '8px',
     marginBottom: '10px',
