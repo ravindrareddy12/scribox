@@ -5,7 +5,9 @@ import { useNavigate } from 'react-router-dom';
 const Register = () => {
   const [employeeId, setEmployeeId] = useState('');
   const navigate = useNavigate();
-  const handleRegister = async () => {
+  const handleRegister = async (e) => {
+    // e.preventDefault();
+    
     // Check if the employee ID is available
     const isAvailable = await FirestoreService.isEmployeeIdAvailable(employeeId);
 
@@ -25,9 +27,12 @@ const Register = () => {
   return (
     <div style={styles.container}>
       <h2 style={styles.heading}>Register</h2>
-      <label style={styles.label}>Employee ID:</label>
+      <form onSubmit={handleRegister}>
+         <label style={styles.label}>Employee ID:</label>
       <input type="text" value={employeeId} onChange={(e) => setEmployeeId(e.target.value)} style={styles.input} required/>
       <button onClick={handleRegister} style={styles.registerButton}>Register</button>
+      </form>
+     
     </div>
   );
 };

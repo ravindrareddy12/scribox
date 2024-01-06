@@ -14,7 +14,9 @@ const Login = () => {
     console.log("isLoggedIn:", isLoggedIn);
   }, [isLoggedIn]);
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    // e.preventDefault();
+    
     // Check if the employee ID exists in Firestore
     const isEmployeeIdValid = await FirestoreService.isEmployeeIdValid(employeeId);
 
@@ -34,9 +36,12 @@ const Login = () => {
   return (
     <div style={styles.container}>
       <h2 style={styles.heading}>Login</h2>
-      <label style={styles.label}>Employee ID:</label>
+      <form onSubmit={handleLogin}>
+         <label style={styles.label}>Employee ID:</label>
       <input type="text" value={employeeId} onChange={(e) => setEmployeeId(e.target.value)} style={styles.input} required/>
       <button onClick={handleLogin} style={styles.loginButton}>Login</button>
+      </form>
+     
       <ChallengeList isLoggedIn={isLoggedIn} />
     </div>
   );
