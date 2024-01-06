@@ -15,6 +15,9 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (employeeId === '') {
+      alert('Please enter valid employee Id');
+    }
 
     const isEmployeeIdValid = await FirestoreService.isEmployeeIdValid(employeeId);
 
