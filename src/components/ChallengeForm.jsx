@@ -96,8 +96,8 @@ const ChallengeForm = () => {
 
 const styles = {
   select: {
-    width: '200px',  // Adjust the width as needed
-    height: '35px',  // Adjust the height as needed
+    width: '200px',  
+    height: '35px',  
     padding: '8px',
     marginBottom: '10px',
   },
