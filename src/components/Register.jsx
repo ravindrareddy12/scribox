@@ -28,7 +28,7 @@ const Register = () => {
     <div style={styles.container}>
       <h2 style={styles.heading}>Register</h2>
       <form onSubmit={handleRegister}>
-         <label style={styles.label}>Employee ID:</label>
+         <label style={styles.label}>Register Your Employee ID:</label>
       <input type="text" value={employeeId} onChange={(e) => setEmployeeId(e.target.value)} style={styles.input} required/>
       <button onClick={handleRegister} style={styles.registerButton}>Register</button>
       </form>
