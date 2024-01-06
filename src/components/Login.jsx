@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import FirestoreService from '../services/FirestoreService';
 import { useNavigate } from 'react-router-dom';
-import ChallengeList from './ChallengeList';
+
 
 const Login = () => {
   const [employeeId, setEmployeeId] = useState('');
@@ -21,7 +21,7 @@ const Login = () => {
     const isEmployeeIdValid = await FirestoreService.isEmployeeIdValid(employeeId);
 
     if (isEmployeeIdValid) {
-      navigate('/challenge-list');
+      navigate('/challenge-list-item');
       alert("Login successful")
     } else {
     
@@ -40,7 +40,7 @@ const Login = () => {
       <button onClick={handleLogin} style={styles.loginButton}>Login</button>
       </form>
      
-      <ChallengeList isLoggedIn={isLoggedIn} />
+      
     </div>
   );
 };

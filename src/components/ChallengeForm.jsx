@@ -35,6 +35,7 @@ const ChallengeForm = () => {
 
   return (
     <div style={styles.container}>
+      
       <h2 style={styles.heading}>Add Challenge</h2>
       {showEmptyDetailsMessage && <p style={styles.errorMessage}>Please fill in title, description, and select a tag.</p>}
       <form onSubmit={handleAddChallenge} style={styles.form}>

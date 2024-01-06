@@ -9,6 +9,7 @@ import Login from '../components/Login';
 import Register from '../components/Register';
 import ChallengeForm from '../components/ChallengeForm';
 import HomePage from '../components/HomePage';
+import Challenges from '../components/ChallageFormList';
 
 function AppRouters() {
 const router = createBrowserRouter([
@@ -27,6 +28,8 @@ const router = createBrowserRouter([
     },
     {
         path:"/challenge-list",element: <ChallengeList/>
+    }, {
+        path:"/challenge-list-item",element: <Challenges/>
     }
     
 ]);
