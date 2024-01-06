@@ -15,18 +15,16 @@ const Login = () => {
   }, [isLoggedIn]);
 
   const handleLogin = async (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     
     // Check if the employee ID exists in Firestore
     const isEmployeeIdValid = await FirestoreService.isEmployeeIdValid(employeeId);
 
     if (isEmployeeIdValid) {
-      setIsLoggedIn(true);
       navigate('/challenge-list');
-      console.log(isLoggedIn)
       alert("Login successful")
     } else {
-      setIsLoggedIn(false);
+    
       // Handle login error (employee ID does not exist)
       alert("Employee ID not found")
       console.log("Login failed. Employee ID not found.");

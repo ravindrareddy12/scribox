@@ -38,11 +38,12 @@ const ChallengeForm = () => {
       <h2 style={styles.heading}>Add Challenge</h2>
       {showEmptyDetailsMessage && <p style={styles.errorMessage}>Please fill in title, description, and select a tag.</p>}
       <form onSubmit={handleAddChallenge} style={styles.form}>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label style={styles.label}>Title:</label>
-        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} style={styles.input} required />
+        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} style={styles.input} required />&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
         <label style={styles.label}>Description:</label>
-        <textarea value={description} onChange={(e) => setDescription(e.target.value)} style={styles.textarea} required />
+        <textarea value={description} onChange={(e) => setDescription(e.target.value)} style={styles.textarea} required />&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
         <label style={styles.label}>Tags:</label>
         <select value={selectedTag} onChange={(e) => setSelectedTag(e.target.value)} required>
@@ -51,7 +52,7 @@ const ChallengeForm = () => {
           <option value="tech">Tech</option>
           <option value="design">Design</option>
           <option value="challenge">Challenge</option>
-        </select>
+        </select>&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
         <input type="submit" value="Submit" style={styles.submitButton} />
       </form>
@@ -73,13 +74,13 @@ const styles = {
   },
   form: {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
     alignItems: 'center',
   },
   label: {
     fontSize: '18px',
     marginBottom: '5px',
-  },
+ },
   input: {
     padding: '8px',
     marginBottom: '10px',

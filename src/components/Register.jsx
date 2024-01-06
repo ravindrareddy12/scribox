@@ -6,7 +6,7 @@ const Register = () => {
   const [employeeId, setEmployeeId] = useState('');
   const navigate = useNavigate();
   const handleRegister = async (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     
     // Check if the employee ID is available
     const isAvailable = await FirestoreService.isEmployeeIdAvailable(employeeId);

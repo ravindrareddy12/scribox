@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import FirestoreService from '../services/FirestoreService';
+import ChallengeForm from './ChallengeForm';
 
 const ChallengeList = ({ isLoggedIn }) => {
   const [challenges, setChallenges] = useState([]);
@@ -43,6 +44,7 @@ const ChallengeList = ({ isLoggedIn }) => {
 
   return (
     <div style={styles.container}>
+      <ChallengeForm />
       <h2 style={styles.heading}>Challenges</h2>
       <div style={styles.sortOptions}>
         <label>Sort by:</label>
