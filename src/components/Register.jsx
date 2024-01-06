@@ -11,19 +11,19 @@ const Register = () => {
       alert('Please enter valid employee Id');
     }
     
-    // Check if the employee ID is available
+   
     const isAvailable = await FirestoreService.isEmployeeIdAvailable(employeeId);
 
     if (isAvailable) {
-      // Register the user
+      
       await FirestoreService.registerUser(employeeId);
 
       alert('Registered successfully');
       navigate('/login');
-      // Redirect or perform actions after successful registration
+     
     } else {
       console.log("Registration failed. Employee ID already taken.");
-      // Handle registration error (employee ID already taken)
+      
     }
   };
 

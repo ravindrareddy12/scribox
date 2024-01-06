@@ -46,7 +46,7 @@ const ChallengeList = ({ isLoggedIn }) => {
       <h2 style={styles.heading}>Challenges</h2>
       <div style={styles.sortOptions}>
         <label>Sort by:</label>
-        <select value={sortOption} onChange={handleSortChange}>
+        <select value={sortOption} onChange={handleSortChange} style={styles.select}>
           <option value="votes">High Votes</option>
           <option value="low votes">Low Votes</option>
           <option value="creationDate">Creation Date</option>
@@ -74,6 +74,12 @@ const ChallengeList = ({ isLoggedIn }) => {
 };
 
 const styles = {
+   select: {
+    width: '200px',  
+    height: '35px',  
+    padding: '8px',
+    marginBottom: '10px',
+  },
   container: {
     textAlign: 'center',
     margin: '20px',
