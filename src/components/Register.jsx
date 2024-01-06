@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import FirestoreService from '../services/FirestoreService';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [employeeId, setEmployeeId] = useState('');
-
+  const navigate = useNavigate();
   const handleRegister = async () => {
     // Check if the employee ID is available
     const isAvailable = await FirestoreService.isEmployeeIdAvailable(employeeId);
@@ -13,6 +14,7 @@ const Register = () => {
       await FirestoreService.registerUser(employeeId);
 
       alert('Registered successfully');
+      navigate('/login');
       // Redirect or perform actions after successful registration
     } else {
       console.log("Registration failed. Employee ID already taken.");
