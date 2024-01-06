@@ -5,7 +5,7 @@ import ChallengeList from './ChallengeList';
 function HomePage() {
   return (
     <div style={styles.container} className="homepage-container">
-      <h1 style={styles.title} className="homepage-title">Welcome to the Homepage!</h1>
+      <h1 style={styles.title} className="homepage-title">Welcome to the Hack Ideas.!</h1>
       <div style={styles.optionsContainer} className="options-container">
         <p style={styles.optionsText} className="options-text">Choose an option:</p>
         <ul style={styles.optionsList} className="options-list">
