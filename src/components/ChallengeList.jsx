@@ -16,7 +16,7 @@ const ChallengeList = ({ isLoggedIn }) => {
   }, []);
 
   const handleVoteClick = async (challengeId) => {
-    if (!isLoggedIn) {
+    if (isLoggedIn) {
       alert('Please log in to vote.'); // Show an alert if not logged in
       return;
     }
