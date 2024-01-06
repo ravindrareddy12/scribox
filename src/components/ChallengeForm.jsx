@@ -22,7 +22,7 @@ const ChallengeForm = () => {
 
     const { title, description, selectedTag } = challengeData;
 
-    // Check if title, description, and tag are not empty
+  
     if (!title || !description || !selectedTag) {
       setShowEmptyDetailsMessage(true);
       return;

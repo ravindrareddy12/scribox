@@ -10,22 +10,18 @@ const Login = () => {
   const navigate = useNavigate();
     
   useEffect(() => {
-    // This effect will run whenever the isLoggedIn state changes
     console.log("isLoggedIn:", isLoggedIn);
   }, [isLoggedIn]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    
-    // Check if the employee ID exists in Firestore
+
     const isEmployeeIdValid = await FirestoreService.isEmployeeIdValid(employeeId);
 
     if (isEmployeeIdValid) {
       navigate('/challenge-list-item');
       alert("Login successful")
     } else {
-    
-      // Handle login error (employee ID does not exist)
       alert("Employee ID not found")
       console.log("Login failed. Employee ID not found.");
     }

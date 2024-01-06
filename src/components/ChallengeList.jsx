@@ -17,7 +17,7 @@ const ChallengeList = ({ isLoggedIn }) => {
 
   const handleVoteClick = async (challengeId) => {
     if (isLoggedIn) {
-      alert('Please log in to vote.'); // Show an alert if not logged in
+      alert('Please log in to vote.'); 
       return;
     }
     await FirestoreService.incrementVotes(challengeId);
@@ -27,7 +27,6 @@ const ChallengeList = ({ isLoggedIn }) => {
     setSortOption(event.target.value);
   };
 
-  // Sort challenges based on the selected option
   const sortedChallenges = [...challenges].sort((a, b) => {
     if (sortOption === 'votes') {
       return b.votes - a.votes; 
